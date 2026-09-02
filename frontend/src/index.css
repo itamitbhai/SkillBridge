@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-surface text-navy-800 antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd3de;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #aab4c4;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg text-sm font-semibold transition-colors duration-150 disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white hover:bg-brand-600 shadow-xs px-4 py-2.5;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-navy-700 border border-navy-100 hover:bg-navy-50 shadow-xs px-4 py-2.5;
+  }
+  .btn-ghost {
+    @apply btn text-navy-500 hover:bg-navy-50 hover:text-navy-700 px-3 py-2;
+  }
+  .card {
+    @apply bg-card border border-navy-100/80 rounded-xl shadow-card;
+  }
+  .input {
+    @apply w-full rounded-lg border border-navy-100 bg-white px-3.5 py-2.5 text-sm text-navy-800 placeholder:text-navy-300 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-400 transition-shadow;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-semibold;
+  }
+}
